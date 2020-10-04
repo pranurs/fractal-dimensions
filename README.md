@@ -1,7 +1,7 @@
-## Fractal Dimension by Box Counting
+# Fractal Dimension by Box Counting
 This repository contains a `MATLAB` implementation of the *box counting* method for approximating the *fractal dimension* of an image.
 
-### Usage
+## Usage
  For obtaining the fractal dimension of an image and the corresponding plot, run (from the command window):
  ```
 >> getfractaldim(imgfile, boxwidth_start, boxwidth_end, boxwidth_incr)
@@ -13,8 +13,8 @@ This repository contains a `MATLAB` implementation of the *box counting* method 
  >> drawgrid(imgfile, boxwidth)
  ```
  where `imgfile` is the image filename (must be a character array), and `boxwidth` is the side length of one grid box (in px).
-### Theory
-#### 1. Fractal Dimension
+## Theory
+### 1. Fractal Dimension
 
 - *What is fractal dimension?*
 
@@ -33,13 +33,13 @@ where $D$ is the fractal dimension, $N$ is the number of the auto-similar parts 
 As an example, for the <i>Vicsek Fractal</i>, $N = 5$ and $S = 3$. So, $D_{Vicsek} = \frac{\ln{5}}{\ln{3}} \approx 1.4649$.
 
 <p align="center" width="100%">
-<img src="img/vicsek-fractal.png" height=200px>
+<img src="img/vicsek-fractal.png" height=300px>
 </p>
 <p align="center" width="100%">
 <em>Fig 1. Vicsek Fractal.</em>
 </p>
 
-#### 2. Box Counting Method
+### 2. Box Counting Method
 
 The <i>box counting</i> method is a technique for approximating the fractal dimension of an object. In essence, it can be viewed as zooming in or out of the image, to observe how detail changes with scale. However, in this technique, rather than changing the magnification of the image itself, we alter the size of the element used to inspect the image, by varying the <i>box width</i>. 
 
@@ -56,7 +56,7 @@ We demonstrate the box counting method using a sample image of the Vicsek fracta
 
 First, we attempt to do this by **hand-counting** the number of boxes containing a portion of the image, for varying box widths. 
 
-|<img src="plots/vf-grid-60.png" height=150px><font size=2px>Box width = 60px<br>Box count = 36</font>|<img src="plots/vf-grid-100.png" height=150px><font size=2px>Box width = 100px<br>Box count = 21</font>|<img src="plots/vf-grid-140.png" height=150px><font size=2px>**Box width = 140px<br>Box count = 12**</font>|<img src="plots/vf-grid-180.png" height=150px><font size=2px>**Box width = 180px<br>Box count = 8**</font>|
+|<img src="plots/vf-grid-60.png" height=200px><font size=2px><br>Box width = 60px<br>Box count = 36</font>|<img src="plots/vf-grid-100.png" height=200px><font size=2px><br>Box width = 100px<br>Box count = 21</font>|<img src="plots/vf-grid-140.png" height=200px><font size=2px><br>**Box width = 140px<br>Box count = 12**</font>|<img src="plots/vf-grid-180.png" height=200px><font size=2px><br>**Box width = 180px<br>Box count = 8**</font>|
 |:---:|:---:|:---:|:---:|
 
 Now, the points on the $\ln{N_{boxes}}$ vs ${\ln{1/r}}$ graph would be plotted as:
@@ -68,7 +68,7 @@ We find the slope $m$ of the best-fit line through these points, using the *leas
 On running `getfractaldim.m` for box widths varying from 1px to 200px, with an increment of 7px in box width for every iteration, we obtain the following graph.
 
 <p align="center" width="100%">
-<img src="plots/vf-graph-1-200-7.png" height=400px>
+<img src="plots/vf-graph-1-200-7.png" height=500px>
 </p>
 <p align="center" width="100%">
 <em>Fig 2. Box counting estimation for fractal dimension</em>
@@ -78,6 +78,6 @@ The solid black points represent our observations and the green line is a best f
 
 Hence, our revised estimate for fractal dimension is **1.440**, which is much closer to the actual value of 1.4649 than the estimate we had obtained by hand calculation.
 
-### Notes
+## Notes
 
-- This implementation of box counting employs a **dynamic programming** approach for calculating the number of boxes containing at least one pixel of the image boundary (black pixels) 
+This implementation of box counting employs a **dynamic programming** approach for calculating the number of boxes containing at least one pixel of the image boundary (black pixels) 
