@@ -80,4 +80,4 @@ Hence, our revised estimate for fractal dimension is **1.440**, which is much cl
 
 ## Notes
 
-This implementation of box counting employs a **dynamic programming** approach for calculating the number of boxes containing at least one pixel of the image boundary (black pixels) 
+This implementation of box counting employs a **dynamic programming** approach for calculating the number of boxes containing at least one pixel of the image boundary (black pixels).
