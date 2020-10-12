@@ -63,7 +63,7 @@ Now, the points on the $\ln{N_{boxes}}$ vs ${\ln{1/r}}$ graph would be plotted a
 
 $(-4.094, 3.584), (-4.605, 3.045), (-4.942, 2.485), (-5.193, 2.079)$
 
-We find the slope $m$ of the best-fit line through these points, using the *least squares regression* method (hand calculation shown in the next section), which comes out to be **1.374**.
+We find the slope $m$ of the best-fit line through these points, using the *least squares regression* method, which comes out to be **1.374**.
 
 On running `getfractaldim.m` for box widths varying from 1px to 200px, with an increment of 7px in box width for every iteration, we obtain the following graph.
 
