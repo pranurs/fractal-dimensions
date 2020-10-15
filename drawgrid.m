@@ -1,10 +1,12 @@
 %%% Draw grid with the specified boxwidth on the image
 function [] = drawgrid(imgfile, boxwidth)
-    %%% Read imagefile as grayscale image
     img = imread(imgfile);
     gridimg = img;
-    [m,n,p] = size(img);
-    
+    %%%% If image has only 1 channel, convert to RGB format (3 channels)
+    if length(size(img)) < 3
+        gridimg = cat(3, img, img, img);
+    end
+    [m, n, p] = size(gridimg);
     %%% Construct (magenta) grid lines
     for i=1:boxwidth:m
         for j=1:n
